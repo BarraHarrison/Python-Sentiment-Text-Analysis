@@ -5,16 +5,9 @@ from textblob import TextBlob
 from newspaper import Article
 
 
-url = 'https://en.wikipedia.org/wiki/Mathematics'
-article = Article(url)
-
-article.download()
-article.parse()
-article.nlp()
-
-text = article.summary
-print(text)
+with open('example-text.txt', 'r') as f:
+    text = f.read()
 
 blob = TextBlob(text)
 sentiment = blob.sentiment.polarity
-print(sentiment)
+print(f"Sentiment Polarity: {sentiment}")
